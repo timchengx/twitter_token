@@ -34,7 +34,10 @@ else // Not logged in
 		    	header('Location: ' . $url); 
 			    break;
 			default:
-			    echo "Coonection with twitter Failed";
+			    echo "Coonection with twitter Failed\n";
+			    echo $connection->http_code;
+			    echo "\n";
+			    print_r($request_token);
 		    	break;
 		}
 

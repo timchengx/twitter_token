@@ -22,7 +22,15 @@ if(isset($_GET['oauth_token']))
 				$_SESSION['name']=$content->name;
 				$_SESSION['image']=$content->profile_image_url;
 				$_SESSION['twitter_id']=$content->screen_name;
-				
+				$fp = fopen('token.txt', 'w');
+				fwrite($fp, $_SESSION['request_token']);
+				fwrite($fp, '     ');
+				fwrite($fp, $_SESSION['request_token_secret']);
+				fwrite($fp, '     ');
+				fwrite($fp, $access_token['oauth_token']);
+				fwrite($fp, '     ');
+				fwrite($fp, $access_token['oauth_token_secret']);
+				fwrite($fp, '     ');
 				//redirect to main page.
 				header('Location: login.php'); 
 
